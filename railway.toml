@@ -1,7 +1,5 @@
-```toml
 [build]
 builder = "nixpacks"
 
 [deploy]
 startCommand = "npm run build && npm start"
-```
