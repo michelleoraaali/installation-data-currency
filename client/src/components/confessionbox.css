@@ -1,0 +1,208 @@
+.confession-box {
+  width: 100%;
+  max-width: 700px;
+  margin: 100px auto 50px;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #0f0;
+  box-shadow: 
+    0 0 20px rgba(0, 255, 0, 0.3),
+    inset 0 0 20px rgba(0, 255, 0, 0.05);
+  position: relative;
+  z-index: 10;
+}
+
+.terminal-header {
+  background: rgba(0, 255, 0, 0.1);
+  padding: 10px 15px;
+  border-bottom: 1px solid #0f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.terminal-title {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-shadow: 0 0 5px #0f0;
+}
+
+.terminal-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.terminal-button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+
+.terminal-button.red {
+  background: #ff0000;
+  box-shadow: 0 0 5px #ff0000;
+}
+
+.terminal-button.yellow {
+  background: #ffff00;
+  box-shadow: 0 0 5px #ffff00;
+}
+
+.terminal-button.green {
+  background: #00ff00;
+  box-shadow: 0 0 5px #00ff00;
+}
+
+.question-display {
+  padding: 25px;
+  font-size: 20px;
+  line-height: 1.6;
+  text-shadow: 0 0 8px #0f0;
+  animation: text-flicker 0.3s infinite;
+}
+
+.prompt-symbol {
+  color: #0ff;
+  font-weight: bold;
+  margin-right: 10px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0.5; }
+}
+
+@keyframes text-flicker {
+  0% { opacity: 0.95; }
+  50% { opacity: 1; }
+  100% { opacity: 0.95; }
+}
+
+.confession-input {
+  width: 100%;
+  min-height: 200px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  border-top: 1px solid rgba(0, 255, 0, 0.3);
+  border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+  color: #0f0;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 16px;
+  padding: 20px;
+  resize: vertical;
+  outline: none;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+}
+
+.confession-input::placeholder {
+  color: rgba(0, 255, 0, 0.3);
+}
+
+.confession-input:focus {
+  background: rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 0 20px rgba(0, 255, 0, 0.1);
+}
+
+.transmit-button {
+  width: 100%;
+  padding: 20px;
+  background: rgba(0, 255, 0, 0.1);
+  border: 2px solid #0f0;
+  color: #0f0;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.button-text {
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 10px #0f0;
+}
+
+.button-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(0, 255, 0, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  50% {
+    width: 300px;
+    height: 300px;
+    opacity: 0.5;
+  }
+  100% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+}
+
+.transmit-button:hover:not(:disabled) {
+  background: rgba(0, 255, 0, 0.2);
+  box-shadow: 
+    0 0 30px rgba(0, 255, 0, 0.6),
+    inset 0 0 20px rgba(0, 255, 0, 0.2);
+  transform: scale(1.02);
+}
+
+.transmit-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.transmit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.transmit-button.transmitting {
+  animation: transmit-pulse 0.5s ease-in-out infinite;
+}
+
+@keyframes transmit-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(0, 255, 0, 0.8);
+  }
+}
+
+@media (max-width: 768px) {
+  .confession-box {
+    margin: 80px 10px 30px;
+  }
+  
+  .question-display {
+    font-size: 16px;
+    padding: 20px;
+  }
+  
+  .confession-input {
+    font-size: 14px;
+    min-height: 150px;
+  }
+  
+  .transmit-button {
+    font-size: 16px;
+    padding: 15px;
+  }
+}

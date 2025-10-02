@@ -1,0 +1,17 @@
+```root json
+{
+  "name": "installation-data-currency",
+  "version": "1.0.0",
+  "description": "Cyberpunk confession app with emotional valence scoring",
+  "scripts": {
+    "install": "cd server && npm install && cd ../client && npm install",
+    "build": "cd client && npm run build",
+    "start": "cd server && node server.js",
+    "dev:server": "cd server && nodemon server.js",
+    "dev:client": "cd client && npm run dev"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+```
